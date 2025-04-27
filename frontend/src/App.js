@@ -452,7 +452,7 @@ function App() {
       
       console.log('Requesting accounts...');
       
-      // Request accounts access
+      // Request accounts access - forcing MetaMask popup to appear
       const accounts = await window.ethereum.request({ 
         method: 'eth_requestAccounts',
         params: []
@@ -518,6 +518,9 @@ function App() {
       } else if (error.code === -32002) {
         // Request already pending
         showNotification('error', 'Connection request already pending. Please check MetaMask.');
+      } else if (error.message && error.message.includes('Already processing eth_requestAccounts')) {
+        // Another way MetaMask reports pending requests
+        showNotification('info', 'MetaMask popup is already open. Please check your browser extensions.');
       } else {
         showNotification('error', `Error connecting: ${error.message || 'Unknown error'}`);
       }
@@ -535,6 +538,7 @@ function App() {
     setIsConnected(false);
     setUserDeeds([]);
     setNetworkName('');
+    
     showNotification('info', 'Wallet disconnected');
   }, [showNotification]);
 

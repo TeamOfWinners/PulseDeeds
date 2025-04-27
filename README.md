@@ -38,6 +38,9 @@ cd PulseDeeds
 
 2. Install dependencies:
 ```
+# Install project dependencies
+npm install
+
 # Install frontend dependencies
 cd frontend
 npm install
@@ -45,10 +48,28 @@ npm install
 
 3. Start the development server:
 ```
+# From the frontend directory
 npm start
 ```
 
 4. Open your browser and navigate to `http://localhost:3000`
+
+## Deployment
+
+See the [DEPLOYMENT.md](DEPLOYMENT.md) file for detailed instructions on deploying both the smart contracts and the frontend to various platforms.
+
+Quick deployment options:
+
+```bash
+# Deploy contracts to PulseChain testnet
+npm run deploy:testnet
+
+# Build the frontend for production
+npm run build-frontend
+
+# Deploy frontend to GitHub Pages
+npm run deploy-frontend
+```
 
 ## Usage
 
