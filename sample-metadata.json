@@ -1,0 +1,32 @@
+{
+  "name": "123 Main Street",
+  "description": "Beautiful 2-bedroom home in Downtown area with modern finishes and a spacious backyard",
+  "image": "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&auto=format&fit=crop",
+  "external_url": "https://pulsedeeds.example.com/property/123",
+  "attributes": [
+    {
+      "trait_type": "Property Type",
+      "value": "Single Family Home"
+    },
+    {
+      "trait_type": "Bedrooms",
+      "value": "2"
+    },
+    {
+      "trait_type": "Bathrooms",
+      "value": "2"
+    },
+    {
+      "trait_type": "Square Feet",
+      "value": "1,250"
+    },
+    {
+      "trait_type": "Year Built",
+      "value": "2018"
+    },
+    {
+      "trait_type": "Lot Size",
+      "value": "0.25 acres"
+    }
+  ]
+} 
