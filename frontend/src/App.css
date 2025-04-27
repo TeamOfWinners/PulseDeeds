@@ -1,0 +1,1043 @@
+/* PulseDeeds App Styles - Neon Cyberpunk Theme */
+:root {
+  --primary-color: #FF41F5; /* Neon Pink */
+  --secondary-color: #41B6FF; /* Electric Blue */
+  --accent-color: #6D00FF; /* Deep Purple */
+  --highlight-color: #CA7CFF; /* Soft Violet */
+  --background-color: #18132C; /* Dark Background */
+  --background-light: #22193C; /* Slightly Lighter Background */
+  --text-color: #ffffff; /* Text on dark background */
+  --text-secondary: #d1d1d8; /* Secondary text */
+  --border-color: #3a3359; /* Border color */
+  --success-color: #00CFFF; /* Success in Electric Blue */
+  --error-color: #FF41F5; /* Error in Neon Pink */
+  --info-color: #CA7CFF; /* Info in Soft Violet */
+  --card-shadow: 0 4px 16px rgba(255, 65, 245, 0.2); /* Pink glow shadow */
+  --blue-shadow: 0 4px 16px rgba(65, 182, 255, 0.2); /* Blue glow shadow */
+  --purple-shadow: 0 4px 16px rgba(109, 0, 255, 0.2); /* Purple glow shadow */
+  --card-bg: #22193C; /* Card background */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  background-image: radial-gradient(circle at top right, #22193C, #18132C);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.App {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Landing Page Styles */
+.landing-page {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: radial-gradient(ellipse at center, #22193C, #18132C);
+  position: relative;
+  overflow: hidden;
+}
+
+.landing-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(255, 65, 245, 0.05), rgba(65, 182, 255, 0.05));
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Neon Grid Background */
+.neon-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(rgba(255, 65, 245, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 65, 245, 0.07) 1px, transparent 1px),
+    linear-gradient(rgba(65, 182, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(65, 182, 255, 0.05) 1px, transparent 1px);
+  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+  background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+  animation: grid-move 15s linear infinite;
+  z-index: 0;
+}
+
+@keyframes grid-move {
+  0% {
+    background-position: 0 0, 0 0, 0 0, 0 0;
+  }
+  100% {
+    background-position: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+  }
+}
+
+.landing-content {
+  max-width: 800px;
+  padding: 3rem;
+  border-radius: 1rem;
+  background-color: rgba(34, 25, 60, 0.7);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(255, 65, 245, 0.2);
+  border: 1px solid rgba(255, 65, 245, 0.3);
+  position: relative;
+  z-index: 2;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+/* Neon House Icon */
+.neon-house {
+  width: 60px;
+  height: 60px;
+  position: relative;
+  margin-right: 1rem;
+}
+
+.neon-house::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: conic-gradient(
+    var(--primary-color) 0deg,
+    transparent 140deg,
+    var(--secondary-color) 180deg,
+    transparent 220deg,
+    var(--accent-color) 300deg
+  );
+  border-radius: 50%;
+  filter: blur(15px);
+  opacity: 0.7;
+  animation: rotate 5s linear infinite;
+}
+
+.neon-house::after {
+  content: '🏠';
+  font-size: 2.5rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-shadow: 0 0 10px var(--primary-color);
+}
+
+.neon-house.small {
+  width: 40px;
+  height: 40px;
+  margin-right: 0.5rem;
+}
+
+.neon-house.small::after {
+  font-size: 1.75rem;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.landing-content h1 {
+  color: var(--primary-color);
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 10px rgba(255, 65, 245, 0.7);
+}
+
+.landing-content h2 {
+  color: var(--secondary-color);
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+  text-shadow: 0 0 8px rgba(65, 182, 255, 0.7);
+}
+
+.landing-content p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: var(--text-secondary);
+}
+
+/* MetaMask Warning */
+.metamask-warning {
+  margin-top: 2rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: rgba(255, 65, 245, 0.1);
+  color: var(--text-color);
+  border: 1px solid rgba(255, 65, 245, 0.3);
+}
+
+.metamask-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+  color: white;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.metamask-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(65, 182, 255, 0.3);
+}
+
+/* Header Styles */
+.App-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  position: relative;
+}
+
+.App-header::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+  opacity: 0.7;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.brand {
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+
+.brand h1 {
+  color: var(--primary-color);
+  font-size: 2.5rem;
+  margin-bottom: 0.25rem;
+  text-shadow: 0 0 10px rgba(255, 65, 245, 0.5);
+}
+
+.brand p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+.wallet-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.network-badge {
+  display: flex;
+  align-items: center;
+  background: rgba(34, 25, 60, 0.7);
+  padding: 0.5rem 0.75rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(65, 182, 255, 0.3);
+  font-size: 0.8rem;
+}
+
+.network-indicator {
+  width: 10px;
+  height: 10px;
+  background-color: var(--secondary-color);
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  box-shadow: 0 0 5px var(--secondary-color);
+  animation: pulse 2s infinite;
+}
+
+.wallet-icon,
+.copy-icon {
+  margin: 0 0.5rem;
+}
+
+.connect-button {
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  box-shadow: 0 4px 12px rgba(255, 65, 245, 0.3);
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.connect-button:hover {
+  background: linear-gradient(135deg, var(--primary-color), #8e00ff);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255, 65, 245, 0.5);
+}
+
+.connect-button:disabled {
+  background: #3a3359;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.disconnect-button {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid var(--primary-color);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.disconnect-button:hover {
+  background: rgba(255, 65, 245, 0.1);
+  box-shadow: 0 0 10px rgba(255, 65, 245, 0.3);
+}
+
+.account-info {
+  background: rgba(34, 25, 60, 0.7);
+  padding: 0.75rem 1.25rem;
+  border-radius: 2rem;
+  display: inline-flex;
+  align-items: center;
+  font-family: monospace;
+  font-size: 0.9rem;
+  box-shadow: 0 0 15px rgba(65, 182, 255, 0.3);
+  border: 1px solid rgba(65, 182, 255, 0.3);
+  color: var(--secondary-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.account-info:hover {
+  background: rgba(65, 182, 255, 0.1);
+  box-shadow: 0 0 20px rgba(65, 182, 255, 0.4);
+}
+
+/* Main Content Layout */
+main {
+  flex: 1;
+}
+
+.app-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.form-sections {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* Section Styles */
+.section {
+  background-color: var(--card-bg);
+  border-radius: 0.75rem;
+  box-shadow: var(--card-shadow);
+  padding: 2rem;
+  border: 1px solid rgba(255, 65, 245, 0.2);
+  transition: box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-color), transparent);
+  opacity: 0.7;
+}
+
+.section:hover {
+  box-shadow: 0 8px 32px rgba(255, 65, 245, 0.3);
+}
+
+.section h2 {
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+  text-shadow: 0 0 5px rgba(255, 65, 245, 0.5);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* My Deeds Section */
+.my-deeds-section {
+  background-color: var(--card-bg);
+  border-radius: 0.75rem;
+  box-shadow: var(--blue-shadow);
+  padding: 2rem;
+  border: 1px solid rgba(65, 182, 255, 0.2);
+}
+
+.my-deeds-section::before {
+  background: linear-gradient(90deg, var(--secondary-color), transparent);
+}
+
+.my-deeds-section:hover {
+  box-shadow: 0 8px 32px rgba(65, 182, 255, 0.3);
+}
+
+.my-deeds-section h2 {
+  color: var(--secondary-color);
+  text-shadow: 0 0 5px rgba(65, 182, 255, 0.5);
+}
+
+.deed-count {
+  background: rgba(65, 182, 255, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  color: var(--secondary-color);
+  border: 1px solid rgba(65, 182, 255, 0.2);
+  font-size: 0.9rem;
+}
+
+/* Form Styles */
+.form-container {
+  background-color: var(--card-bg);
+  border-radius: 0.75rem;
+  box-shadow: var(--purple-shadow);
+  padding: 2rem;
+  border: 1px solid rgba(109, 0, 255, 0.2);
+}
+
+.form-container::before {
+  background: linear-gradient(90deg, var(--accent-color), transparent);
+}
+
+.form-container:hover {
+  box-shadow: 0 8px 32px rgba(109, 0, 255, 0.3);
+}
+
+.form-container h2 {
+  color: var(--accent-color);
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+  text-shadow: 0 0 5px rgba(109, 0, 255, 0.5);
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.input-with-button {
+  display: flex;
+  position: relative;
+}
+
+.input-with-button input {
+  flex-grow: 1;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.input-button {
+  background: linear-gradient(135deg, var(--accent-color), var(--highlight-color));
+  color: white;
+  border: none;
+  padding: 0 1rem;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.input-button:hover {
+  background: linear-gradient(135deg, var(--highlight-color), var(--accent-color));
+}
+
+.form-hint {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: 0.25rem;
+  font-style: italic;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  color: var(--text-color);
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(109, 0, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.form-group input:disabled {
+  background-color: rgba(0, 0, 0, 0.2);
+  cursor: not-allowed;
+}
+
+.token-selector {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.token-id-badge {
+  background: rgba(65, 182, 255, 0.1);
+  color: var(--secondary-color);
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  border: 1px solid rgba(65, 182, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.token-id-badge:hover {
+  background: rgba(65, 182, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.form-container button {
+  background: linear-gradient(135deg, var(--accent-color), var(--highlight-color));
+  color: white;
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(109, 0, 255, 0.3);
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.form-container button:hover {
+  background: linear-gradient(135deg, #8e00ff, #d29aff);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(109, 0, 255, 0.5);
+}
+
+.form-container button:disabled {
+  background: #3a3359;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.loading-deeds, .no-deeds {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.empty-state-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.7;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.deeds-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.deed-card {
+  background-color: rgba(34, 25, 60, 0.8);
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 16px rgba(65, 182, 255, 0.2);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(65, 182, 255, 0.2);
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.deed-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--secondary-color), transparent);
+  z-index: 1;
+}
+
+.deed-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 32px rgba(65, 182, 255, 0.4);
+}
+
+.deed-image {
+  height: 200px;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.deed-image::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(65, 182, 255, 0.1), rgba(255, 65, 245, 0.1));
+  pointer-events: none;
+}
+
+.deed-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.deed-card:hover .deed-image img {
+  transform: scale(1.05);
+}
+
+.deed-image-placeholder {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.deed-image-placeholder span:first-child {
+  font-size: 3rem;
+  opacity: 0.7;
+}
+
+.deed-details {
+  padding: 1.25rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.deed-details h3 {
+  color: var(--secondary-color);
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 5px rgba(65, 182, 255, 0.5);
+}
+
+.deed-id {
+  font-family: monospace;
+  background-color: rgba(65, 182, 255, 0.1);
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.8rem;
+  margin-bottom: 0.75rem;
+  color: var(--secondary-color);
+  border: 1px solid rgba(65, 182, 255, 0.3);
+}
+
+.deed-description {
+  margin-bottom: 1rem;
+  line-height: 1.4;
+  color: var(--text-secondary);
+}
+
+.deed-attributes {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+  flex: 1;
+}
+
+.attribute {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.attribute-label {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.attribute-value {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--highlight-color);
+}
+
+.deed-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.action-button {
+  flex: 1;
+  background: linear-gradient(135deg, var(--secondary-color), rgba(65, 182, 255, 0.7));
+  color: white;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.action-button:hover {
+  background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+  transform: translateY(-2px);
+}
+
+.action-button.secondary {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(65, 182, 255, 0.3);
+}
+
+/* Loading Spinner */
+.spinner {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 3px solid rgba(65, 182, 255, 0.1);
+  border-radius: 50%;
+  border-top-color: var(--secondary-color);
+  animation: spin 1s ease-in-out infinite;
+  margin-right: 0.75rem;
+  box-shadow: 0 0 10px rgba(65, 182, 255, 0.5);
+}
+
+.spinner.small {
+  width: 1rem;
+  height: 1rem;
+  border-width: 2px;
+  margin-right: 0.5rem;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Status Message Styles */
+.status-message {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: rgba(65, 182, 255, 0.1);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary-color);
+  border: 1px solid rgba(65, 182, 255, 0.3);
+  box-shadow: 0 0 15px rgba(65, 182, 255, 0.2);
+}
+
+.status-message.loading {
+  animation: pulse 1.5s infinite;
+}
+
+/* Notification Styles */
+.notification {
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 0.5rem;
+  text-align: center;
+  animation: slideDown 0.3s ease-out;
+  backdrop-filter: blur(5px);
+  position: relative;
+  overflow: hidden;
+}
+
+.notification::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: translateX(-100%);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.notification.success {
+  background-color: rgba(65, 182, 255, 0.1);
+  color: var(--secondary-color);
+  border: 1px solid rgba(65, 182, 255, 0.3);
+  box-shadow: 0 0 15px rgba(65, 182, 255, 0.3);
+}
+
+.notification.error {
+  background-color: rgba(255, 65, 245, 0.1);
+  color: var(--primary-color);
+  border: 1px solid rgba(255, 65, 245, 0.3);
+  box-shadow: 0 0 15px rgba(255, 65, 245, 0.3);
+}
+
+.notification.info {
+  background-color: rgba(202, 124, 255, 0.1);
+  color: var(--highlight-color);
+  border: 1px solid rgba(202, 124, 255, 0.3);
+  box-shadow: 0 0 15px rgba(202, 124, 255, 0.3);
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+/* Footer Styles */
+footer {
+  margin-top: 3rem;
+  text-align: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  position: relative;
+}
+
+footer::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+  opacity: 0.7;
+}
+
+.footer-links {
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.footer-links a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--primary-color);
+  text-shadow: 0 0 5px rgba(255, 65, 245, 0.5);
+}
+
+.divider {
+  color: var(--border-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .App {
+    padding: 1rem;
+  }
+  
+  .header-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .brand {
+    text-align: center;
+    margin-bottom: 1rem;
+    justify-content: center;
+  }
+  
+  .wallet-info {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .form-sections {
+    grid-template-columns: 1fr;
+  }
+  
+  .deeds-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .landing-content {
+    padding: 2rem;
+    margin: 1rem;
+  }
+  
+  .landing-content h1 {
+    font-size: 2.5rem;
+  }
+  
+  .deed-actions {
+    flex-direction: column;
+  }
+}
+
+/* Fee display styles */
+.fee-display {
+  background: rgba(65, 182, 255, 0.1);
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.25rem;
+  border: 1px solid rgba(65, 182, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.fee-label {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.fee-amount {
+  color: var(--secondary-color);
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-shadow: 0 0 5px rgba(65, 182, 255, 0.5);
+}
+
+.fee-hint {
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+/* Property value display */
+.property-value {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(202, 124, 255, 0.1);
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.5rem;
+  margin-top: 0.5rem;
+  border: 1px solid rgba(202, 124, 255, 0.3);
+  font-size: 0.85rem;
+  color: var(--highlight-color);
+}
+
+.property-value-label {
+  margin-right: 0.5rem;
+  color: var(--text-secondary);
+} 
