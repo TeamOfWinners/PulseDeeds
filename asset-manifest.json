@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/PulseDeeds/static/css/main.a56dd08d.css",
-    "main.js": "/PulseDeeds/static/js/main.e37f4d8e.js",
+    "main.js": "/PulseDeeds/static/js/main.e69aa352.js",
     "index.html": "/PulseDeeds/index.html",
     "main.a56dd08d.css.map": "/PulseDeeds/static/css/main.a56dd08d.css.map",
-    "main.e37f4d8e.js.map": "/PulseDeeds/static/js/main.e37f4d8e.js.map"
+    "main.e69aa352.js.map": "/PulseDeeds/static/js/main.e69aa352.js.map"
   },
   "entrypoints": [
     "static/css/main.a56dd08d.css",
-    "static/js/main.e37f4d8e.js"
+    "static/js/main.e69aa352.js"
   ]
 }
