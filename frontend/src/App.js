@@ -19,21 +19,9 @@ function App() {
     return tempDiv.innerHTML;
   };
 
-  // Contract configuration - replace with actual contract address after deployment
-  const contractAddress = "0xC1BBb9401bA72E6E23cE5d03C92F7DEEe6595F9D"; // Deployed PulseDeedNFT contract address
-  const abi = useMemo(() => [
-    "function mintDeed(address to, string memory tokenURI, uint256 propertyValue) public payable returns (uint256)",
-    "function transferDeed(address from, address to, uint256 tokenId, uint256 propertyValue) public payable",
-    "function ownerOf(uint256 tokenId) public view returns (address)",
-    "function tokenURI(uint256 tokenId) public view returns (string memory)",
-    "function nextTokenId() public view returns (uint256)",
-    "function estimateMintFee(uint256 propertyValue) external view returns (uint256)",
-    "function estimateTransferFee(uint256 tokenId, uint256 newValue) external view returns (uint256)",
-    "function deedValues(uint256 tokenId) public view returns (uint256)",
-    "function getDeedDetails(uint256 tokenId) external view returns (bool exists, string memory uri, uint256 value, uint256 transferFee)",
-    "function withdrawFees() external",
-    "function owner() external view returns (address)"
-  ], []);
+  // Contract configuration
+  const contractAddress = "0xC1BBb9401bA72E6E23cE5d03C92F7DEEe6595F9D";
+  const abi = useMemo(() => PulseDeedNFT.abi, []);
 
   // State variables
   const [provider, setProvider] = useState(null);
@@ -43,6 +31,7 @@ function App() {
   const [isConnected, setIsConnected] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [networkName, setNetworkName] = useState('');
+  const [error, setError] = useState(null);
   
   // Form states
   const [mintTo, setMintTo] = useState('');
@@ -61,7 +50,6 @@ function App() {
   const [userDeeds, setUserDeeds] = useState([]);
   const [isLoadingDeeds, setIsLoadingDeeds] = useState(false);
   const [notification, setNotification] = useState({ show: false, type: '', message: '' });
-  const [error, setError] = useState('');
 
   // Show notification
   const showNotification = useCallback((type, message) => {
@@ -710,6 +698,38 @@ function App() {
       setStatusMessage('');
     }
   }, [account, contract, fetchUserDeeds, mintTo, propertyValue, showNotification, signer, tokenURI]);
+
+  // Error handling utility
+  const handleError = useCallback((error) => {
+    console.error('Error:', error);
+    setError(error.message || 'An error occurred');
+    setIsLoading(false);
+  }, []);
+
+  // Initialize provider and signer
+  useEffect(() => {
+    const init = async () => {
+      try {
+        if (window.ethereum) {
+          const provider = new ethers.BrowserProvider(window.ethereum);
+          setProvider(provider);
+          
+          const network = await provider.getNetwork();
+          setNetworkName(network.name);
+          
+          const signer = await provider.getSigner();
+          setSigner(signer);
+          
+          const contract = new ethers.Contract(contractAddress, abi, signer);
+          setContract(contract);
+        }
+      } catch (error) {
+        handleError(error);
+      }
+    };
+    
+    init();
+  }, [abi, handleError]);
 
   // Landing page when not connected
   if (!isConnected) {

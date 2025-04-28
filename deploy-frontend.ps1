@@ -1,12 +1,18 @@
-# PowerShell script to build the React app for production deployment
+# PowerShell script to deploy the React app
+Write-Host "Deploying PulseDeeds frontend..." -ForegroundColor Cyan
+
+# Navigate to frontend directory
 cd frontend
-npm run build
-Write-Host "Build completed! The 'frontend/build' directory is ready for deployment." -ForegroundColor Green
-Write-Host ""
-Write-Host "Deployment options:" -ForegroundColor Cyan
-Write-Host "1. Vercel: https://vercel.com/new - Import your GitHub repository" -ForegroundColor Yellow
-Write-Host "2. Netlify: https://app.netlify.com/start - Connect to GitHub and select repository" -ForegroundColor Yellow
-Write-Host "3. GitHub Pages: Add 'gh-pages' package and deploy script" -ForegroundColor Yellow
-Write-Host "4. AWS Amplify: Connect through AWS Amplify Console" -ForegroundColor Yellow
-Write-Host ""
-Write-Host "For any of these options, point to the 'build' folder for deployment" -ForegroundColor Cyan 
+
+# Install dependencies if needed
+if (-not (Test-Path "node_modules")) {
+    Write-Host "Installing dependencies..." -ForegroundColor Yellow
+    npm install
+}
+
+# Deploy to GitHub Pages
+Write-Host "Deploying to GitHub Pages..." -ForegroundColor Yellow
+npm run deploy
+
+Write-Host "Deployment completed!" -ForegroundColor Green
+Write-Host "Your site will be available at: https://teamofwinners.github.io/PulseDeeds" -ForegroundColor Cyan 

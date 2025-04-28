@@ -1,25 +1,21 @@
 {
   "name": "pulsedeeds",
   "version": "1.0.0",
+  "description": "PulseDeeds - Property Deed NFTs on PulseChain",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "npx hardhat run scripts/deploy.js",
-    "deploy:local": "npx hardhat run scripts/deploy.js --network localhost",
-    "deploy:testnet": "npx hardhat run scripts/deploy.js --network pulseTestnet",
-    "build-frontend": "cd frontend && npm run build",
-    "deploy-frontend": "cd frontend && npm run deploy"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
-  "devDependencies": {
-    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
-    "hardhat": "^2.23.0"
-  },
+  "keywords": [
+    "pulsechain",
+    "nft",
+    "property",
+    "deed"
+  ],
+  "author": "TeamOfWinners",
+  "license": "MIT",
   "dependencies": {
-    "@openzeppelin/contracts": "^5.3.0",
-    "dotenv": "^16.5.0"
+    "@openzeppelin/contracts": "^5.0.1",
+    "hardhat": "^2.19.4"
   }
 }
